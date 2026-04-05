@@ -6,7 +6,7 @@ A **machine learning + soft computing based system** that predicts weather condi
 
 ## 🚀 Project Overview
 
-This project addresses the limitations of traditional weather prediction models by integrating:
+This project addresses the limitations of traditional weather prediction models by integrating:-
 
 * **Machine Learning (XGBoost)** for probabilistic prediction
 * **Fuzzy Logic** for handling uncertainty and ambiguity
