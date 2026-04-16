@@ -69,3 +69,19 @@ def predict_with_proba(model: Any, X: pd.DataFrame, label_encoder: Any) -> tuple
     conf = float(proba[idx])
     label = label_encoder.inverse_transform([idx])[0]
     return label, conf, idx
+
+
+def predict_with_proba_vector(
+    model: Any, X: pd.DataFrame, label_encoder: Any
+) -> tuple[str, float, int, np.ndarray]:
+    """
+    Return (label, confidence=max proba, class_index, proba_vector).
+
+    proba_vector keeps full probability distribution so hybrid fusion can
+    aggregate rain-like vs dry-like probability consistently.
+    """
+    proba = model.predict_proba(X)[0]
+    idx = int(proba.argmax())
+    conf = float(proba[idx])
+    label = label_encoder.inverse_transform([idx])[0]
+    return label, conf, idx, proba

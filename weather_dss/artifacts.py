@@ -31,6 +31,7 @@ def write_meta(
     *,
     confidence_low_threshold: float | None = None,
     confidence_high_threshold: float | None = None,
+    disagreement_high_threshold: float | None = None,
 ) -> None:
     meta = {
         "validation_accuracy": val_acc,
@@ -38,5 +39,6 @@ def write_meta(
         "n_classes": n_classes,
         "confidence_low_threshold": confidence_low_threshold,
         "confidence_high_threshold": confidence_high_threshold,
+        "disagreement_high_threshold": disagreement_high_threshold,
     }
     artifact_meta_path().write_text(json.dumps(meta, indent=2), encoding="utf-8")
